@@ -35,4 +35,30 @@ const usuario = {
     },
     amigos:['Alex','Carlos'],
     estatus: true,
+    enviaCorreo: enviarCorr=()=>'enviando...'
 }
+
+//PROPIEDADES
+//console.log(usuario);
+//console.log(usuario.direccion.calle);
+//console.log(usuario.amigos);
+
+//METODOS
+//console.log(usuario.enviaCorreo())
+
+
+// TRABAJO CON EL DOM
+
+const titulo= document.createElement('h1')
+titulo.innerText= 'Soy un titulo creado con JS'
+document.body.append(titulo)
+
+const boton= document.createElement('button')
+boton.innerText= 'Presioname'
+document.body.append(boton)
+
+boton.addEventListener('click', function (){
+    //console.log('Evento click ejecutando')
+    titulo.innerText="Evento click ejecutando"
+    alert('Exito')
+})
