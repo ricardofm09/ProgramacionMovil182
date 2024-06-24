@@ -1,60 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, Dimensions } from 'react-native';
-
+// import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
+// Button, TextInput, ScrollView, Dimensions -- REACT - NATIVE
 
 
 export default function App() {
 
-  const[text, setText]= useState('valor Default')
-  const[submit, setSubmit]= useState('')
-
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollview}>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <Text> Componente TextInput: {submit} </Text>
-        <TextInput style={styles.input} placeholder='Escribe algo...' onChangeText = { (t)=>setText(t) } value={text}/>
-        <Button title='Presioname...' onPress={ ()=> {setSubmit(text); alert('texto enviado')}} />
-      </ScrollView>
+      <FlatList
+      data={[
+           {key:1, name: 'Ricardo'},
+           {key:2, name: 'Edain'},
+           {key:3, name: 'Pedro'},
+           {key:4, name: 'Pablo'},
+           {key:5, name: 'Jose'},
+      ]}
+      renderItem={({item})=><Text style={styles.items}> {item.name} </Text>}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -65,16 +28,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    paddingTop:40,
   },
-  input: {  
-    width: '80%',
-    height: 40,
+  items: {
+    padding: 10,
+    fontSize: 24,
+    height: 50,
+    borderColor: 'Red',
     borderBottomWidth: 1,
-    borderBottomColor: 'blue', 
   },
-  scrollview: {
-    width:Dimensions.get('window').width
-  }
 });
