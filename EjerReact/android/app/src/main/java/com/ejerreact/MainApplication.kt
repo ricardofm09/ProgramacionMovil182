@@ -1,4 +1,4 @@
-package com.blankbare
+package com.ejerreact
 
 import android.app.Application
 import android.content.res.Configuration

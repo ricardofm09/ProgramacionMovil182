@@ -1,4 +1,4 @@
-rootProject.name = 'BlankBare'
+rootProject.name = 'EjerReact'
 
 dependencyResolutionManagement {
   versionCatalogs {

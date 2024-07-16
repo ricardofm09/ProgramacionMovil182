@@ -1,75 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ImageBackground } from 'react-native';
+import { StatusBar } from "react-native";
+import { StyleSheet, Text, View, FlatList, ActivityIndicator } from "react-native";
+import React, {useState,useEffect} from "react";
+import Prueba from "./screens/Prueba";
 
 export default function App() {
-  const[name, setName] = useState('');
-  const[email, setEmail] = useState('');
-  const[password, setPassword] = useState('');
-  const[submit, setSubmit] = useState('');
-
-  const Nombre = (text) => { setName(text); }
-  const Email = (text) => { setEmail(text); }
-  const Password = (text) => { setPassword(text); }
-
-  const Guardar = () => { alert(`Nombre: ${name}\nEmail: ${email}\nPassword: ${password}`); }
-
   return (
-    <ImageBackground source={require('./background.jpg')} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <View style={styles.contentContainer}>
-          <View style={[styles.boxContainer, styles.widthContainer]}>
-            <Text style={[styles.text]}> Nombre {submit} </Text>
-            <TextInput style={[styles.input, styles.text]} placeholder='Nombre' onChangeText={Nombre} value={name} />
-            <Text style={[styles.text]}> Email {submit} </Text>
-            <TextInput style={[styles.input, styles.text]} placeholder='Email' onChangeText={Email} value={email} />
-            <Text style={[styles.text]}> Password {submit} </Text>
-            <TextInput style={[styles.input, styles.text]} placeholder='Contraseña' onChangeText={Password} value={password} secureTextEntry={true} />
-            <Button title='Guardar' onPress={Guardar} />
-          </View>
-        </View>
-        <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
+    <Prueba></Prueba>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   container: {
     flex: 1,
-    alignItems: 'center',
+    flexDirection:'column',
+    backgroundColor:'#fff',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    paddingTop:60,
   },
-  contentContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+  item:{
+    padding:10,
+    fontSize:24,
+    height:50,
+    borderColor:'blue',
+    borderBottomWidth:2
   },
-  boxContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: 20,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 10,
-  },
-  widthContainer: {
-    width: '200%',
-  },
-  input: {
-    width: '100%',
-    height: 50,
-    borderBottomWidth: 2,
-    borderBottomColor: '#CF87EA',
-    paddingHorizontal: 10,
-  },
-  text: {
-    fontSize: 18,
-    marginVertical: 10,
-  },
-});
+  center:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center'
+  }
+})

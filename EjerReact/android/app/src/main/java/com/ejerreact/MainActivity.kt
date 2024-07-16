@@ -1,4 +1,4 @@
-package com.blankbare
+package com.ejerreact
 
 import android.os.Build
 import android.os.Bundle
